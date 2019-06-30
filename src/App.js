@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import SearchButton from "./components/SearchButton";
+import Users from "./components/Users";
 
 function App() {
+  const [fetchUsers, setFetchUsers] = useState(false)
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +18,8 @@ function App() {
           />
         </h1>
       </header>
-      <SearchButton />
+      <SearchButton search={setFetchUsers} />
+      {fetchUsers ? <Users /> : null}
     </div>
   );
 }
