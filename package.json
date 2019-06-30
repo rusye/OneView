@@ -30,7 +30,6 @@
     ]
   },
   "devDependencies": {
-    "jest": "^24.8.0",
     "redux-thunk": "^2.3.0"
   }
 }
