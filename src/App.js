@@ -18,7 +18,9 @@ function App() {
           />
         </h1>
       </header>
-      <SearchButton search={setFetchUsers} />
+      
+      {!fetchUsers ? <SearchButton search={setFetchUsers} /> : null}
+      
       {fetchUsers ? <Users /> : null}
     </div>
   );
