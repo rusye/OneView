@@ -4,4 +4,6 @@
 
 ## Just click on that button to retrieve the results
 
-### P.S. I am using hooks
+### I am using hooks in this challenge.  I had more familiarity with using React without Redux, it is fairly simple to pickup.
+
+### My tests could use some more work.
