@@ -37,6 +37,7 @@ export default function Users() {
         } else {
           message = "Something went wrong, please try again later";
         }
+        setFetchingData(false);
         setServerMessage(message);
       });
   };
@@ -48,8 +49,8 @@ export default function Users() {
 
   return (
     <div>
-      {fetchingData ? <p>Fetching Users</p> : resultsToDisplay}
-      {serverMessage ? <div>{serverMessage}</div> : null}
+      {fetchingData ? <p>Fetching Users</p> : null}
+      {serverMessage ? <div>{serverMessage}</div> : resultsToDisplay}
     </div>
   );
 }

@@ -4,7 +4,8 @@ import SearchButton from "./components/SearchButton";
 import Users from "./components/Users";
 
 function App() {
-  const [fetchUsers, setFetchUsers] = useState(false)
+  // Until the button is pushed, the fetch is not executed
+  const [fetchUsers, setFetchUsers] = useState(false);
 
   return (
     <div className="App">
@@ -18,9 +19,9 @@ function App() {
           />
         </h1>
       </header>
-      
+
       {!fetchUsers ? <SearchButton search={setFetchUsers} /> : null}
-      
+
       {fetchUsers ? <Users /> : null}
     </div>
   );

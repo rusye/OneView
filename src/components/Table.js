@@ -2,13 +2,14 @@ import React from "react";
 import "./Table.css";
 
 export default function Table(props) {
-  
+  // This takes the string dot notation and changes it to a object reference
   const index = (obj, i) => {
     return obj[i];
-  }
+  };
 
   return (
     <table>
+      {/* The columns */}
       <tbody>
         <tr>
           {props.columns.map(column => {
@@ -17,6 +18,7 @@ export default function Table(props) {
         </tr>
       </tbody>
 
+      {/* The rows */}
       {props.rows.map(row => {
         return (
           <tbody key={row.id}>
