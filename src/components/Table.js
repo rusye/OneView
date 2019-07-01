@@ -2,6 +2,11 @@ import React from "react";
 import "./Table.css";
 
 export default function Table(props) {
+  
+  const index = (obj, i) => {
+    return obj[i];
+  }
+
   return (
     <table>
       <tbody>
@@ -16,10 +21,13 @@ export default function Table(props) {
         return (
           <tbody key={row.id}>
             <tr>
-              <td key={row.name}>{row.name}</td>
-              <td key={row.email}>{row.email}</td>
-              <td key={row.address.city}>{row.address.city}</td>
-              <td key={row.company.name}>{row.company.name}</td>
+              {props.columnKeys.map(columnKey => {
+                return (
+                  <td key={columnKey.split(".").reduce(index, row)}>
+                    {columnKey.split(".").reduce(index, row)}
+                  </td>
+                );
+              })}
             </tr>
           </tbody>
         );
