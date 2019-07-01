@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { normalizeResponseErrors } from "../functions/normalizeResponse";
+import Table from "./Table";
 
-export default function Users(props) {
+export default function Users() {
   const [resultsToDisplay, setResultsToDisplay] = useState(null);
   const [fetchingData, setFetchingData] = useState(true);
   const [serverMessage, setServerMessage] = useState(null);
+
+  const columns = ["Name", "Email", "City", "Company"];
 
   const fetchUsers = () => {
     return fetch("https://jsonplaceholder.typicode.com/users", {
@@ -15,16 +18,9 @@ export default function Users(props) {
         return res.json();
       })
       .then(res => {
-        console.log(res);
         if (res.length > 0) {
-          setResultsToDisplay(<p>I have some users for you</p>);
-          // setResultsToDisplay(
-          //   rcvdUsers.map((columns and rows) => {
-          //     return (
-          //       // display the results
-          //     );
-          //   })
-          // );
+          //I didn't set the response to a state because I had bug that I couldn't figure out in a timely manner.
+          setResultsToDisplay(<Table columns={columns} rows={res} />);
         } else {
           setResultsToDisplay(<p>No users to display</p>);
         }
