@@ -8,6 +8,7 @@ export default function Users() {
   const [serverMessage, setServerMessage] = useState(null);
 
   const columns = ["Name", "Email", "City", "Company"];
+  const columnKeys = ["name", "email", "address.city", "company.name"]
 
   const fetchUsers = () => {
     return fetch("https://jsonplaceholder.typicode.com/users", {
@@ -20,7 +21,7 @@ export default function Users() {
       .then(res => {
         if (res.length > 0) {
           //I didn't set the response to a state because I had bug that I couldn't figure out in a timely manner.
-          setResultsToDisplay(<Table columns={columns} rows={res} />);
+          setResultsToDisplay(<Table columns={columns} rows={res} columnKeys={columnKeys} />);
         } else {
           setResultsToDisplay(<p>No users to display</p>);
         }
@@ -42,6 +43,7 @@ export default function Users() {
 
   useEffect(() => {
     fetchUsers();
+    // eslint-disable-next-line
   }, []);
 
   return (
